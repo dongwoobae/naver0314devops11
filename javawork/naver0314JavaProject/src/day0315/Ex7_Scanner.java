@@ -21,7 +21,6 @@ public class Ex7_Scanner {
 		System.out.printf("총점 : %d점, 평균 : %3.1f점",kor+eng,(kor+eng)/2.0);
 		//결과가 double 이어야 할 경우 수식중 한개라도 double 타입이 있어야한다
 		
-
 	}
 
 }

@@ -22,7 +22,9 @@ public class Ex12_munje {
 		System.out.println(msg);
 		System.out.println(score+"점 \n"+msg);			
 						
-			
+		/**dfdfdf
+		 * 
+		 */
 		
 		
 		
