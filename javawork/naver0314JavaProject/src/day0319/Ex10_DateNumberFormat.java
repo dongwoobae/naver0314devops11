@@ -35,7 +35,7 @@ public class Ex10_DateNumberFormat {
 		NumberFormat nf2=NumberFormat.getInstance();
 		System.out.println(nf2.format(average));
 		nf2.setMaximumFractionDigits(1);
-		System.out.println(nf2.format(average));
+		System.out.println(nf2.format(average));//반올림됨
 		
 		
 		
