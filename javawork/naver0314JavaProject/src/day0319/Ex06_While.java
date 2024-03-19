@@ -34,10 +34,10 @@ public class Ex06_While {
 		while(true)
 		{
 			
-				System.out.printf("%s",ch++);
+				System.out.printf("%2s",ch++);
 			if(ch>'Z')
 				break;
-		}System.out.println();
+		}
 		
 		
 		
