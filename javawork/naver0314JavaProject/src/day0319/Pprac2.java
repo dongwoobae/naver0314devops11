@@ -3,19 +3,17 @@ package day0319;
 public class Pprac2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-		for(int i=1;i<=10;i++)
+		while(true)
 		{
-			for(int j=1;j<=10;j++)
+		int x = (int)(Math.random()*6)+1;
+		int y =(int)(Math.random()*6)+1;
+		
+			if (x+y==5)
 			{
-				int answer = 4*i + j*5;
-				if(answer==60)
-				{
-					System.out.printf("%d,%d\n",i,j);
-				}
+				System.out.printf("%d,%d\n",x,y);
+				break;
 			}
-		}
-	}
-
+			System.out.printf("%d,%d\n",x,y);
+			}
 }
+	}
