@@ -1,0 +1,12 @@
+package prc;
+
+public class PPRR {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String answer="abcdefghijk";
+		char a = answer.charAt(0);
+		System.out.println(String.valueOf(a)); 
+	}
+
+}
