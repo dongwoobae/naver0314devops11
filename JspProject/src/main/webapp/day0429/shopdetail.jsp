@@ -28,6 +28,15 @@
 body * {
 	font-family: "Gowun Batang";
 }
+.updateColor{
+position:relative;
+left:80px;
+top:-20px;
+}
+div.selColor{
+width: 50px;
+height: 50px;
+}
 </style>
 </head>
 <%
@@ -50,10 +59,31 @@ $(function(){
 		$(document).on("click","#updateName",function(){
 			$(this).val("");
 		})
+		
 		$(".price").html("가격: <input type='text' id='updatePrice' value='<%=dto.getSprice()%>'>")
 		$(document).on("click","#updatePrice",function(){
 			$(this).val("");
 		})
+		
+		$(".color").html("<div class='selColor'></div>"
+		+"<input type='color' class='updateColor'>")
+		
+		$(".total").html("총 금액: <input type='text' readonly class='updateTotal'>");
+		
+		$(document).on("keyup","#updatePrice",function(){
+			var uP=$("#updatePrice").val();
+			var uN=$("#updateNum").val();
+			
+			$(".updateTotal").val(parseInt(uP)*parseInt(uN));			
+		})
+		
+		$(document).on("change","#updateNum",function(){
+			var uP=$("#updatePrice").val();
+			var uN=$("#updateNum").val();
+			
+			$(".updateTotal").val(parseInt(uP)*parseInt(uN));			
+		})
+		
 		$(".count").html("수량: <input type='number' id='updateNum' min='1' max='5' value='<%=dto.getScount()%>'>")
 							$("#listBtn").remove();
 							$("#updateBtn").remove();
@@ -62,11 +92,12 @@ $(function(){
 							$(".buttons")
 									.html(
 											"<button type='button' class='btn btn-outline-danger btn-sm' style='width: 80px' id='doneBtn'>완료</button>")
+											
 							$(document).on("click","#doneBtn",function(){
 								let updateName=$("#updateName").val();
 								let updatePrice=$("#updatePrice").val();
 								let updateCount=$("#updateNum").val();
-								let color=$(".color").css("backgroundColor");
+								let color=$(".updateColor").val();
 								let photo=$(".photo").attr("src");
 								
 								$.ajax({									
@@ -96,7 +127,8 @@ $(function(){
 	
 		$("#deleteBtn").click(function() {
 			let shopidx=<%=shopidx%>;
-			console.log(shopidx);
+			let a=confirm(`\${shopidx}번 상품을 삭제할까요?`);
+			if(a){
 			$.ajax({
 				url:"./shopdelete.jsp",
 				method:"post",
@@ -106,8 +138,9 @@ $(function(){
 				success:function(response){
 					alert("삭제에 성공했습니다");
 					$("#listBtn").trigger("click");
+					//location.href="./shoplist.jsp";
 				}
-			})
+			})}
 		})
 });
 </script>
@@ -133,7 +166,7 @@ $(function(){
 						수량:
 						<%=dto.getScount()%>개
 					</h5>
-					<h5>
+					<h5 class="total">
 						총 금액:
 						<%=df.format(dto.getScount() * dto.getSprice())%>원
 					</h5>

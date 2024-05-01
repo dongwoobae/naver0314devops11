@@ -22,4 +22,6 @@ dto.setSphoto(photo);
 dto.setSprice(updatePrice);
 dto.setScount(updateCount);
 dao.updateShop(dto);
+//shopdetail 페이지로 이동
+//response.sendRedirect("shopdetail.jsp?shopidx="+shopidx);
 %>
