@@ -64,7 +64,14 @@ List<SawonDto> list = dao.getAllSawons();
 				onclick="location.href='sawonform.jsp'" 
 				style="margin-left:10px; heigth:50px">사원추가</button>
 		</div>
-		
+		<div style="margin: 20px;">
+			<button type="button" class="btn btn-success"
+			style="width:120px;" 
+			onclick="location.href='sawongenderanalysis.jsp'">성별 분석표</button>
+			<button type="button" class="btn btn-success"
+			style="width:120px;" 
+			onclick="location.href='sawonbuseoanalysis.jsp'">부서별 분석표</button>		
+		</div>
 		<%
 		for(SawonDto dto:list){%>
 			<div class="list">

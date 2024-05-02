@@ -14,7 +14,6 @@ int num=Integer.parseInt(request.getParameter("num"));
 <jsp:setProperty name="dto" property="*"/>
 
 <%
-
 dao.updateData(dto);
 response.sendRedirect("./sawondetail.jsp?num="+num);
 %>

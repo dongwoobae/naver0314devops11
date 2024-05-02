@@ -4,8 +4,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
+
+import com.mysql.cj.protocol.Resultset;
+import com.mysql.cj.xdevapi.Result;
 
 import data.dto.SawonDto;
 import db.common.MysqlConnect;
@@ -168,5 +173,90 @@ public class SawonDao {
 		}
 		
 	}
+	
+	//성별 분석데이터 반환
+	//dto 생성 대신에 몇개 안되서 map 형식으로 받음
+	//map에 object 라고 하면 int String 둘다 가능 근데 숫자도 String 으로 받을수 있으므로 그냥 String
+	public List<Map<String, String>> getGenderAnalysis(){
+		List<Map<String, String>> list = new Vector<Map<String,String>>();
+		
+		String sql="""
+				select gender, count(*) count,round(avg(age),1) age from mysawon
+group by gender
+				""";
+		Connection conn =null;
+		PreparedStatement pstmt = null;
+		ResultSet rs=null;
+		
+		conn=db.getConnection();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Map<String, String> map= new HashMap<String,String>();
+				
+				String gender=rs.getString("gender");
+				String count=rs.getString("count");
+				String age = rs.getString("age");
+				
+				//map에 넣기
+				map.put("gender", gender);
+				map.put("count", count);
+				map.put("age", age);
+				
+				//list에 추가
+				list.add(map);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return list;
+	}
+	
+	public List<Map<String,String>> getBuseoAnalysis(){
+		List<Map<String,String>> list = new Vector<Map<String, String>>();
+		String sql="""
+				select buseo,count(*) count,round(avg(age),1) age from mysawon
+group by buseo
+				""";
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+				
+		conn=db.getConnection();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Map<String,String>map=new HashMap<String, String>();
+				
+				String buseo=rs.getString("buseo");
+				String count=rs.getString("count");
+				String age=rs.getString("age");
+				
+				
+				map.put("buseo", buseo);
+				map.put("count", count);
+				map.put("age", age);
+				
+				list.add(map);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return list;
+	}
+	
+	
 	
 }

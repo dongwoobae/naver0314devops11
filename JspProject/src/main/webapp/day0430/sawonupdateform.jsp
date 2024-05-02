@@ -61,18 +61,17 @@ $(function(){
 			$(this).prop("selected",true);
 			$(".photo").attr("src",$(this).val());
 		}
-	})
-	
+	})	
 })
 </script>
 <body>
 	<div style="margin: 20px; width: 300px;">
 		<form action="./sawonupdate.jsp" method="post">
+		<input type="text" name="num" hidden="hidden" value="<%=num%>">
 			<table class="table table-bordered">
 				<caption align="top">
 					<h5 class="alert alert-warning">사원수정포맷</h5>
-				</caption>
-				<input type="text" name="num" hidden="hidden" value="<%=num%>">
+				</caption>				
 				<tr>
 					<th width="100" class="table-danger">사원명</th>
 					<td><input type="text" name="name" class="form-control"
@@ -91,6 +90,8 @@ $(function(){
 				<tr>
 					<th width="100" class="table-danger">부서</th>
 					<td><select class="form-select" name="buseo" id="buseo">
+					<!-- option 안에 dto.getBuseo().equals(해당부서의이름)?"selected":""
+					만일 option이 많으면 for문 돌려서 차례로 넣을 수 있음 -->
 							<option>교육부</option>
 							<option>인사부</option>
 							<option>홍보부</option>
@@ -99,6 +100,7 @@ $(function(){
 				</tr>
 				<tr>
 					<th width="100" class="table-danger">성별</th>
+					<!-- 얘도 똑같이 option안에 자바영역 열고 dto.getGender().equals(각각성별)?"checked":"" -->
 					<td><label> <input type="radio" name="gender"
 							value="남자">남자
 					</label> <label> <input type="radio" name="gender" value="여자">여자
