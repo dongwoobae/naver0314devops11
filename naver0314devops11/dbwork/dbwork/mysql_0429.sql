@@ -103,16 +103,7 @@ name varchar(10),
 company varchar(10),
 price int);
 
-use cycleproject;
 alter table frame add column photo varchar(20);
 alter table wheel add column photo varchar(20);
 alter table drivetrain add column photo varchar(20);
 alter table saddle add column photo varchar(20);
-alter table stem add column photo varchar(20);
-alter table frame add column company varchar(20);
-alter table frame drop column content;
-alter table frame modify column company varchar(20) after name;
-alter table frame modify column name varchar(20);
-alter table drivetrain modify column name varchar(20);
-alter table wheel modify column name varchar(20);
-delete from frame where num=11;

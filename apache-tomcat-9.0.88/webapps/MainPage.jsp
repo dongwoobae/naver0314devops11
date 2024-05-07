@@ -13,7 +13,7 @@ pageEncoding="UTF-8"%>
       rel="stylesheet"
     />
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-
+	 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
@@ -24,11 +24,11 @@ pageEncoding="UTF-8"%>
   </head>
   <%
   
-  %>
+  %>  	  
   <body>
     <nav class="sidebar">
       <div class="logo-menu">
-        <h2 class="logo"><a href="mypage.jsp"></a></h2>
+        <h2 class="logo"><a href="#">Admin</a></h2>
         <i class="bx bx-menu toggle-btn"></i>
       </div>
       <ul class="list">
@@ -44,9 +44,9 @@ pageEncoding="UTF-8"%>
             <span class="link-name" style="--i: 2">User</span>
           </a>
           <ul class="submenu">
-            <li>Members</li>
-            <li>Ranking</li>
-            <li>UserPhotos</li>
+            <li value="1">Members</li>
+            <li value="2">Ranking</li>
+            <li value="3">UserPhotos</li>
           </ul>
         </li>
         <li class="list-item">
@@ -55,10 +55,10 @@ pageEncoding="UTF-8"%>
             <span class="link-name" style="--i: 3">Bicycle</span>
           </a>
           <ul class="submenu">
-            <li>Frame</li>
-            <li>Wheel</li>
-            <li>Drivetrain</li>
-            <li>others</li>
+            <li value="1">Frame</li>
+            <li value="2">Wheel</li>
+            <li value="3">Drivetrain</li>
+            <li value="4">others</li>
           </ul>
         </li>
         <li class="list-item">
@@ -67,10 +67,10 @@ pageEncoding="UTF-8"%>
             <span class="link-name" style="--i: 4">Accessories</span>
           </a>
           <ul class="submenu">
-            <li>Helmet</li>
-            <li>Goggle</li>
-            <li>cycling computer</li>
-            <li>blackbox</li>
+            <li value="1">Helmet</li>
+            <li value="2">Goggle</li>
+            <li value="3">cycling computer</li>
+            <li value="4">blackbox</li>
           </ul>
         </li>
         <li class="list-item">
@@ -79,10 +79,10 @@ pageEncoding="UTF-8"%>
             <span class="link-name" style="--i: 5">Course</span>
           </a>
           <ul class="submenu">
-            <li>east seoul</li>
-            <li>west seoul</li>
-            <li>gangwondo</li>
-            <li>jeju</li>
+            <li value="1">east seoul</li>
+            <li value="2">west seoul</li>
+            <li value="3">gangwondo</li>
+            <li value="4">jeju</li>
           </ul>
         </li>
         <li class="list-item">
@@ -99,53 +99,6 @@ pageEncoding="UTF-8"%>
         </li>
       </ul>
     </nav>
-    <main>
-    <div class="loginmain">
-      <div class="loginhead">
-        <h1 class="text text-large">Sign In</h1>
-        <p class="text text-normal">
-          New user?
-          <span
-            ><a href="insertuser.jsp" class="text text-links"
-              >Create an account</a
-            ></span
-          >
-        </p>
-      </div>
-      <form name="signin" class="form" action="loginaction.jsp">
-        <div class="input-control">
-          <label for="email" class="input-label" hidden>Email Address</label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            class="input-field"
-            placeholder="Email Address"
-          />
-        </div>
-        <div class="input-control">
-          <label for="password" class="input-label" hidden>Password</label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            class="input-field"
-            placeholder="Password"
-          />
-        </div>
-        <div class="input-control">
-          <a href="#" class="text text-links">Forgot Password</a>
-          <input
-            type="submit"
-            name="submit"
-            class="input-submit"
-            value="Sign In"
-            disabled
-          />
-        </div>
-      </form>
-    </div>
-    </main>
     <script src="script.js"></script>
   </body>
 </html>

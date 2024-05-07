@@ -28,3 +28,8 @@
 02-May-2024 12:16:45.707 정보 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@191ae03f')
 02-May-2024 12:16:45.825 정보 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
 02-May-2024 12:16:45.826 정보 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
+02-May-2024 14:06:45.413 정보 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextInitialized()
+02-May-2024 14:06:45.413 정보 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextInitialized()
+02-May-2024 14:06:45.415 정보 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: attributeAdded('StockTicker', 'async.Stockticker@51e4ccb3')
+02-May-2024 14:07:46.459 정보 [main] org.apache.catalina.core.ApplicationContext.log SessionListener: contextDestroyed()
+02-May-2024 14:07:46.459 정보 [main] org.apache.catalina.core.ApplicationContext.log ContextListener: contextDestroyed()
