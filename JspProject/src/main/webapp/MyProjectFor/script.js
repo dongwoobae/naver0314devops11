@@ -9,15 +9,9 @@ toggleBtn.addEventListener("click", function () {
   $(".submenu").slideUp();
 });
 
-function sendOrderByValueToServer() {
-    let selectedValue = $("select[name='orderBy']").val();
-
-    // AJAX를 사용하여 선택된 값을 서버로 전송합니다.
-    $.post("Framelist.jsp", { orderBy: selectedValue }, function(data) {
-        // 서버로부터 받은 새로운 데이터를 사용하여 게시판의 내용을 업데이트합니다.
-        $("#boardContent").html(data);
-    });
-    };
+function submitForm() {
+        document.querySelector('.formSel').submit();
+    }
     
 $(document).ready(function () {
   $("nav.sidebar>ul.list>li.list-item>a").click(function (e) {
@@ -31,10 +25,6 @@ $(document).ready(function () {
   });
    
    
-  $("select[name='orderBy']").on("change", function() {
-        sendOrderByValueToServer();
-    });
-    sendOrderByValueToServer();
     
    $("#dashboard").click(function(){
 	location.href="Homepage.jsp";
@@ -47,13 +37,13 @@ $(document).ready(function () {
   });
 
 // 장바구니 추가 버튼 클릭 이벤트 핸들러
-$(".btnApply").on("click", function () {
+$("button.btnApply").on("click", function () {
     // 클릭된 제품 정보 가져오기
     var productInfo = {
-        company: $(this).closest(".component-container").find("h3:first").text().trim(),
-        name: $(this).closest(".component-container").find("h3:eq(1)").text().trim(),
-        price: $(this).closest(".component-container").find("h4").text().trim(),
-        photo: $(this).closest(".component-container").find("img").attr("src").trim()
+        company: $(this).parent().siblings("h3").text().trim(),
+        name: $(this).parent().siblings("span").text().trim(),
+        price: $(this).parent().text().trim(),
+        photo: $(this).parent().siblings("img.productImage").attr("src").trim()
         
     };
 
@@ -84,3 +74,16 @@ $("#btnDelCartAll").on("click",function(){
         location.reload();
         }
     });
+    
+ $("#framePopup").click(function(){
+	window.open("./myinsertitem/frameinsert.jsp", "frameinsert",
+	 "width=400, height=330, left=100, top=50");
+ });
+ $("#drivetrainPopup").click(function(){
+	window.open("./myinsertitem/drivetraininsert.jsp", "drivetraininsert",
+	 "width=400, height=330, left=100, top=50");
+ });
+ $("#wheelPopup").click(function(){
+	window.open("./myinsertitem/wheelinsert.jsp", "wheelinsert",
+	 "width=400, height=330, left=100, top=50");
+ });

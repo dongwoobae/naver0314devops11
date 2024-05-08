@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>frame insert</title>
 <!--��Ʈ��Ʈ��-->
 <!-- Latest compiled and minified CSS -->
 <link
@@ -30,6 +30,7 @@ body * {
 	<form action="frameaction.jsp" method="post"
 		enctype="multipart/form-data">
 		<table class="table table-bordered">
+		<caption align="top"><b>프레임 db 입력</b></caption>
 			<tr>
 				<th>이름</th>
 				<td><input type="text" name="name"></td>

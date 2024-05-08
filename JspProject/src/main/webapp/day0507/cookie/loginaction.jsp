@@ -1,32 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<!--��Ʈ��Ʈ��-->
-<!-- Latest compiled and minified CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Latest compiled JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<!--�۲�-->
-<link href="https://fonts.googleapis.com/css2?family=Dokdo&family=Dongle&family=Gaegu&family=Gowun+Batang&family=Reem+Kufi+Fun:wght@400..700&family=Song+Myung&family=Dancing+Script&family=Tilt+Neon&display=swap" rel="stylesheet">
-<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
- <style>
-    @font-face {
-    font-family: 'Pretendard-Regular';
-    src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-}
-     body *{
-         font-family: "Pretendard-Regular";
-     }
- </style>
-</head>
-<body>
-
-</body>
-</html>
+<%
+//amho를 읽는다
+String amho=request.getParameter("amho");
+//amho가 1234면 쿠키에 amho라는 이름으로 저장한다
+if(amho.equals("1234")){
+	Cookie cookie = new Cookie("amho","yes");
+	cookie.setPath("/");//저장되는 위치
+	cookie.setMaxAge(60*60);//1분 *60 한시간
+	//쿠키는 지우는 메소드는 없어서 setMaxAge를 0으로 설정하여서 삭제가능
+	response.addCookie(cookie);//브라우저에 쿠키 추가
+	
+	response.sendRedirect("cookiemain.jsp");
+}else{%>
+	<script>
+	alert("암호가 맞지 않습니다");
+	history.back();
+	</script>
+<%}
+%>

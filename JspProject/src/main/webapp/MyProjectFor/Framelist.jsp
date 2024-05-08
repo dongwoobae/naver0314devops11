@@ -49,7 +49,7 @@ String pageLink = "Framelist.jsp?orderBy=" + orderBy + "&page=";
 		    selectedValue = orderBy;
 		}
 		%>
-			<select name="orderBy">
+			<select name="orderBy" onchange="submitForm()">
 				<option value="register"
 					<%=selectedValue.equals("register")?"selected":""%>>등록 순</option>
 				<option value="latest"
@@ -61,7 +61,6 @@ String pageLink = "Framelist.jsp?orderBy=" + orderBy + "&page=";
 					<%=selectedValue.equals("lowPrice")?"selected":""%>>가격 낮은
 					순</option>
 			</select>
-			<button type="submit" class="btnApply-sm">go</button>
 		</form>
 	</div>
 	<main class="container">
@@ -69,19 +68,17 @@ String pageLink = "Framelist.jsp?orderBy=" + orderBy + "&page=";
     for (FrameDto dto : currentPageItems) {
     %>
 		<div class="component-container">
-		<br>
+			<br>
 			<h3>
 				&nbsp;&nbsp;&nbsp;<%= dto.getCompany() %></h3>
-			<span>
-				&nbsp;&nbsp;&nbsp;<%= dto.getName() %></span><br>
-			<img src="../save/<%= dto.getPhoto() %>">
-			<h4>
-				&nbsp;&nbsp;&#8361;<%= df.format(Integer.parseInt(dto.getPrice())) %></h4>
-			<div style="text-align: right; margin-bottom: 15px;">
+			<span> &nbsp;&nbsp;&nbsp;<%= dto.getName() %></span><br> <img
+				src="../save/<%= dto.getPhoto() %>" class="productImage"> <span>
+				&nbsp;&nbsp;&#8361;<%= df.format(Integer.parseInt(dto.getPrice())) %>
+				<%=("&nbsp;").repeat(40) %>
 				<button type="button" class="btnApply">
 					<img src="../image/cartImage.png">
 				</button>
-			</div>
+			</span>
 		</div>
 		<%
     }
@@ -101,6 +98,7 @@ String pageLink = "Framelist.jsp?orderBy=" + orderBy + "&page=";
 		<a href="<%=pageLink + (currentPage + 1)%>">>></a>
 		<% } %>
 	</div>
+	<button type="button" id="framePopup" class="popup"><i class='bx bx-plus-medical'></i></button>
 </body>
 <jsp:include page="MainPage.jsp"></jsp:include>
 </html>

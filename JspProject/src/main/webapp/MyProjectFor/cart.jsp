@@ -18,6 +18,8 @@ $(document).ready(function () {
     // 비어있으면 장바구니가 비어있다고 표시
     if (cartItems.length === 0) {
         $("main.container").append("<h1 class='cartnone'>Empty Cart</h1>");
+        $("#btnDelCartAll").hide();
+        $("body").removeClass().addClass("cartmain");
     } else {
     	let totalPrice=0;
         // 장바구니에 제품 표시
@@ -27,22 +29,22 @@ $(document).ready(function () {
                 "</h3><span>&nbsp;&nbsp;" + item.name + "</span><br><img src='../save/" + item.photo + "'><h4>"+
                 item.price+
                 '<div style="text-align: right; margin-bottom: 15px;">' +
-                '<button type="button" class="btnDeleteEach" data-index="'+index+'">장바구니 삭제</button>' +
+                '<button type="button" class="btnDeleteEach" data-index="'+index+'"><img src="../image/trashcan.png" class="imgEachDel"></button>' +
                 '</div></div>');
-            var priceInt=item.price.replace(/[^\d]/g, "");
+            var priceInt=item.price.replace(/[^\d]/g, "");//정규표현식으로 숫자가 아니면 다 제거
             totalPrice+=parseInt(priceInt.trim());
             
         });
-        $("main.container").before("<h2 class='totalPrice'>총 금액:"+formatter.format(totalPrice)+"</h2>");
+        $("main.container").before("<h1 class='totalPrice'>Total : "+formatter.format(totalPrice)+"</h1>");
     }   
    
 });
 </script>
-<body>
+<body class="mainpage">
     <main class="container">        
     </main>
     <div class="cartButtons">
-    <button type="button" id="btnDelCartAll">장바구니 전체 삭제</button>
+    <button type="button" id="btnDelCartAll"><img src="../image/trashall.png"></button>
     </div>
 </body>
 <jsp:include page="MainPage.jsp"></jsp:include>

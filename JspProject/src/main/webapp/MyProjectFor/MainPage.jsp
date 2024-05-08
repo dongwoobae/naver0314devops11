@@ -19,7 +19,7 @@ pageEncoding="UTF-8"%>
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="./style.css" rel="stylesheet" />
+    <link href="./style.css?after" rel="stylesheet" />
     <title>Document</title>
   </head>  	  
   <body class="mainpage">
@@ -96,6 +96,6 @@ pageEncoding="UTF-8"%>
         </li>
       </ul>
     </nav>
-    <script src="script.js"></script>
+    <script src="script.js?after"></script>
   </body>
 </html>
