@@ -1,5 +1,5 @@
-<%@page import="data.dto.MemoDao"%>
-<%@page import="data.dao.MemoDto"%>
+<%@page import="data.dao.MemoDao"%>
+<%@page import="data.dto.MemoDto"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

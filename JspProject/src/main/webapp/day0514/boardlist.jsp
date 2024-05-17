@@ -85,7 +85,8 @@ a {
 			</c:forEach>
 		</c:if>
 	</table>
-	<div style="width: 200px; text-align: center; margin-left: 200px;">
+	<div style="width: 300px; text-align: center; margin-left: 150px;">
+		<a href="./list">first</a>&nbsp;
 		<c:if test="${ startPage>1}">
 			<a href="./list?currentPage=${startPage-1}">&lt;&lt;</a>
 		</c:if>
@@ -96,6 +97,8 @@ a {
 		<c:if test="${endPage<totalPage}">
 			<a href="./list?currentPage=${endPage+1}">&gt;&gt;</a>
 		</c:if>
+		&nbsp;
+		<a href="./list?currentPage=${totalPage }">last</a>
 	</div>
 </body>
 </html>

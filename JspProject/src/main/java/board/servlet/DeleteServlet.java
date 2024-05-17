@@ -16,9 +16,10 @@ public class DeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		int num=Integer.parseInt(request.getParameter("num"));
+		int currentPage=Integer.parseInt(request.getParameter("currentPage"));
 		dao.deleteBoard(num);
-		
-		response.sendRedirect("./list");
+
+		response.sendRedirect("./list?currentPage="+currentPage);
 	}
 
 	/**

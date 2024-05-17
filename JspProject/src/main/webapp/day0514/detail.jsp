@@ -48,7 +48,8 @@ body * {
 					value="${dto.writeday }" pattern="yyyy-MM-dd HH:mm" /></td>
 		</tr>
 		<tr>
-			<td>조회수 ${dto.readcount }</td>
+			<td>조회수 ${dto.readcount }&nbsp; 추천수 <span class="chu">${dto.chu }</span></td>
+
 		</tr>
 		<tr>
 			<td width="200"><img
@@ -57,15 +58,18 @@ body * {
 			<td>${dto.content }</td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center">
+			<td colspan="2" align="center"><i
+				class="bi bi-hand-thumbs-up mychu"
+				style="font-size: 20px; cursor: pointer;"></i>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<button type="button" class="btn btn-sm btn-info"
 					onclick="location.href='./form'">글쓰기</button>
 				<button type="button" class="btn btn-sm btn-success"
-					onclick="location.href='./updateform?num=${dto.num}'">수정</button>
+					onclick="location.href='./updateform?num='+${dto.num}+'&currentPage='+${currentPage }">수정</button>
 				<button type="button" class="btn btn-sm btn-danger"
 					onclick="confirmDelete()">삭제</button>
 				<button type="button" class="btn btn-sm btn-secondary"
-					onclick="location.href='./list?currentPage=${currentPage}'">목록</button>
+					onclick="location.href='./list?currentPage='+${currentPage}">목록</button>
 			</td>
 		</tr>
 	</table>
@@ -73,9 +77,24 @@ body * {
 	function confirmDelete(){
 		let a = confirm("정말 삭제하시겠습니까?");
 		if(a){
-			location.href="./delete?num=${dto.num}";
+			let num=${dto.num};
+			let cP=${currentPage};
+			location.href="./delete?num="+num+"&currentPage="+cP;
 		}
 	}
+	//추천 클릭시 숫자 증가
+	$(".mychu").click(function(){
+		let num=${dto.num};
+		$.ajax({
+			type:"get",
+			dataType:"json",
+			data:{"num":num},
+			url:"./updateChu",
+			success:function(data){
+				$("span.chu").text(data.chu);
+			}			
+		});
+	});
 	</script>
 </body>
 </html>

@@ -9,9 +9,9 @@ ShopDao dao=new ShopDao();
 ShopDto dto=new ShopDto();
 //shopidx int 타입으로 읽기
 String shopidx = request.getParameter("shopidx");
-dto.setShopidx(shopidx);
+
 //delete 메소드 호출
-dao.deleteShop(dto);
+dao.deleteShop(Integer.parseInt(shopidx));
 //목록으로 이동
 response.sendRedirect("shoplist.jsp");
 %>
