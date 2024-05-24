@@ -8,3 +8,4 @@ readcount smallint default 0,
 chu smallint default 0,
 writeday datetime
 );
+alter table simpleboard modify column content varchar(200);
