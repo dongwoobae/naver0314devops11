@@ -90,7 +90,7 @@ a {
 		<c:if test="${ startPage>1}">
 			<a href="./list?currentPage=${startPage-1}">&lt;&lt;</a>
 		</c:if>
-		<c:forEach var="pp" begin="${startPage }" end="${endPage }">
+		<c:forEach var="pp" begin="${startPage }" end="${endPage}">
 			<a href="./list?currentPage=${pp }"
 				style="text-decoration: none; color:${currentPage eq pp?'red':'black' }">${pp }</a>
 		</c:forEach>

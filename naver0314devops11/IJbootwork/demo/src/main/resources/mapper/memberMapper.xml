@@ -4,4 +4,30 @@
     <select id="getTotalCount" resultType="int">
         select count(*) from memberdb
     </select>
+    <select id="getMemberByNum" parameterType="int" resultType="MemberDto">
+        select * from memberdb where num=#{num}
+    </select>
+    <select id="getMemberById" parameterType="String" resultType="MemberDto">
+        select * from memberdb where myid=#{myid}
+    </select>
+    <select id="getTotalMember" resultType="MemberDto">
+        select * from memberdb order by num
+    </select>
+    <update id="updatePhoto" parameterType="Map">
+        update memberdb set photo=#{photo} where num=#{num}
+    </update>
+    <delete id="deleteMember" parameterType="Map">
+        delete from memberdb where num=#{num} and passwd=#{passwd}
+    </delete>
+    <update id="updateMember" parameterType="MemberDto">
+        update memberdb set addr=#{addr},hp=#{hp},email=#{email},birthday=#{birthday} where num=#{num}
+    </update>
+    <select id="isLoginCheck" parameterType="Map" resultType="int">
+        select count(*) from memberdb where myid=#{myid} and passwd=#{passwd}
+    </select>
+    <insert id="insertMember" parameterType="MemberDto">
+        insert into memberdb (name,myid,passwd,addr,hp,email,photo,birthday,gaipday)
+        values (#{name},#{myid},#{passwd},#{addr},#{hp},#{email},#{photo},#{birthday},now())
+    </insert>
+
 </mapper>
